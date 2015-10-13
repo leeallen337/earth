@@ -26,6 +26,14 @@ let clouds = new THREE.Mesh(
   })
 );
 
+let stars = new THREE.Mesh(
+  new THREE.SphereGeometry(100, 32, 32),
+  new THREE.MeshBasicMaterial({
+    map: THREE.ImageUtils.loadTexture('./images/galaxy_starfield.png'),
+    side: THREE.BackSide
+  })
+);
+
 renderer.setSize(width, height);
 directionalLight.position.set(8, 5, 5);
 
@@ -33,6 +41,7 @@ scene.add(ambientLight);
 scene.add(directionalLight);
 scene.add(earth);
 scene.add(clouds);
+scene.add(stars);
 
 camera.position.z = 10;
 
