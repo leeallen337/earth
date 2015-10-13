@@ -18,12 +18,21 @@ let earth = new THREE.Mesh(
   })
 );
 
+let clouds = new THREE.Mesh(
+  new THREE.SphereGeometry(5.2, 32, 32),
+  new THREE.MeshPhongMaterial({
+    map: THREE.ImageUtils.loadTexture('./images/fair_clouds_4k.png'),
+    transparent: true
+  })
+);
+
 renderer.setSize(width, height);
 directionalLight.position.set(8, 5, 5);
 
 scene.add(ambientLight);
 scene.add(directionalLight);
 scene.add(earth);
+scene.add(clouds);
 
 camera.position.z = 10;
 
