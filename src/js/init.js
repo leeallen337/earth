@@ -7,9 +7,6 @@ let renderer = new THREE.WebGLRenderer();
 let ambientLight = new THREE.AmbientLight(0x333333);
 let directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.75);
 
-renderer.setSize(width, height);
-directionalLight.position.set(8, 5, 5);
-
 let earth = new THREE.Mesh(
   new THREE.SphereGeometry(5, 32, 32),
   new THREE.MeshPhongMaterial({
@@ -20,6 +17,9 @@ let earth = new THREE.Mesh(
     specular: new THREE.Color('grey')
   })
 );
+
+renderer.setSize(width, height);
+directionalLight.position.set(8, 5, 5);
 
 scene.add(ambientLight);
 scene.add(directionalLight);
