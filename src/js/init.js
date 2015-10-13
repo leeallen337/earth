@@ -50,6 +50,9 @@ document.body.appendChild(renderer.domElement);
 function render() {
   requestAnimationFrame(render);
 
+  earth.rotation.y += 0.0010;
+  clouds.rotation.y += 0.0015;
+
   renderer.render(scene, camera);
 }
 
