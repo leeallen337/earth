@@ -10,12 +10,24 @@ let directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.75);
 renderer.setSize(width, height);
 directionalLight.position.set(8, 5, 5);
 
-document.body.appendChild(renderer.domElement);
+let earth = new THREE.Mesh(
+  new THREE.SphereGeometry(5, 32, 32),
+  new THREE.MeshPhongMaterial({
+    map: THREE.ImageUtils.loadTexture('./images/2_no_clouds_4k.jpg'),
+    bumpMap: THREE.ImageUtils.loadTexture('./images/elev_bump_4k.jpg'),
+    bumpScale: 0.1,
+    specularMap:THREE.ImageUtils.loadTexture('./images/water_4k.png'),
+    specular: new THREE.Color('grey')
+  })
+);
 
 scene.add(ambientLight);
 scene.add(directionalLight);
+scene.add(earth);
 
 camera.position.z = 10;
+
+document.body.appendChild(renderer.domElement);
 
 function render() {
   requestAnimationFrame(render);
